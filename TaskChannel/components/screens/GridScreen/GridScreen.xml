@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<!-- node that renders Grid Screen, handles bookmark buttons, handles start of video playback -->
 <component name="GridScreen" extends="Group" initialFocus="RowList">
     <interface>
-        <!-- input -->
-        <!-- Grid Content Node -->
-        <field id="content" type="node" alias="RowList.content" onChange="onContentChange"/>
-        
-        <!-- Row item selection handler -->
+        <field id="content" type="node" alias="RowList.content" onChange="OnFocusedChildChange"/>
         <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="RowList.rowItemSelected"/>
-        
-        <!-- Row item focused handler -->
         <field id="itemFocused" type="intarray" alias="RowList.rowItemFocused" onChange="OnItemFocused"/>
-
-        <!-- Interface to focused item (Content Node) -->
         <field id="focusedContent"  type="node"/>
     </interface>
     
-    <!-- main handler -->
     <script type="text/brightscript" uri="pkg:/components/screens/GridScreen/GridScreen.brs" />
         
-    <children>    
+    <children>   
+    <Rectangle
+         id="testRectangle"
+         color="0xADD8E6"
+         width="1280"
+         height="800"
+         translation="[0,0]" /> 
         <RowList
             id="RowList"
             focusBitmapUri="pkg:/images/focus_grid.9.png"
@@ -44,6 +40,7 @@
         <Description 
             id="Description"
             translation="[106, 119]"
-            itemSpacings="[7,17]"/>
+            itemSpacings="[7,17]"
+            />
     </children>
 </component>

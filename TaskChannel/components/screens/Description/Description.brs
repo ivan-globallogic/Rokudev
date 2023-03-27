@@ -6,7 +6,6 @@ Sub Init()
 End Sub
 
 ' Content change handler
-' All fields population
 Sub OnContentChanged()
     item = m.top.content
 

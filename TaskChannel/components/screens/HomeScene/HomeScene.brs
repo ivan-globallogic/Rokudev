@@ -1,56 +1,20 @@
- ' inits grid screen
- ' creates all children
- ' sets all observers 
+
 Function Init()
-    ' listen on port 8089
     ? "[HomeScene] Init"
-    m.top.backgroundURI = "pkg:/images/background.jpg"
     m.screenStack = []
-    'main grid screen node
     m.GridScreen = m.top.findNode("GridScreen")
+    m.detailsScreen = m.top.findNode("DetailsScreen")
     StartDownloading()
     ShowScreen(m.GridScreen)
 End Function 
 
 ' Row item selected handler
-Sub PlayVideoFromGrid()
-    ? "[HomeScene] OnRowItemSelected"
-    selectedItem = m.GridScreen.focusedContent
-    
-    m.videoPlayer = CreateObject("roSGNode", "Video")
-    m.videoPlayer.id="videoPlayer"
-    m.videoPlayer.translation="[0, 0]"
-    m.videoPlayer.width="1280"
-    m.videoPlayer.height="720"
-    m.top.appendChild(m.videoPlayer)
-    
-    'init of video player and start playback
-    m.videoPlayer.content = selectedItem
-    'show video player
-    ShowScreen(m.videoPlayer)
-
-    m.videoPlayer.control = "play"
-    m.videoPlayer.observeField("state", "OnVideoPlayerStateChange")
-    m.videoPlayer.observeField("visible", "OnVideoPlayerVisibilityChange")
-End Sub
-
-Sub OnVideoPlayerStateChange()
-    ? "HomeScene > OnVideoPlayerStateChange : state == ";m.videoPlayer.state
-    if m.videoPlayer.state = "error" OR m.videoPlayer.state = "finished"
-        'hide video player in case of error
-        HideScreen(m.videoplayer)
-    end if
-end Sub
-
-sub OnVideoPlayerVisibilityChange()
-    'stop video playback
-    if not m.videoPlayer.visible then
-        m.videoPlayer.control = "stop"
-        m.videoPlayer.content = invalid
-        m.top.removeChild(m.videoPlayer)
-        m.videoPlayer = invalid
-    end if
-end sub
+Function OnRowItemSelected()
+    HideScreen(m.GridScreen)
+    m.detailsScreen.content = m.gridScreen.focusedContent
+    m.detailsScreen.setFocus(true)
+    ShowScreen(m.DetailsScreen)
+End Function
 
 ' if content set, focus on GridScreen
 Sub OnChangeContent()
@@ -58,17 +22,30 @@ Sub OnChangeContent()
     m.GridScreen.setFocus(true)
 End Sub
 
-' Main Remote keypress event loop
 Function OnkeyEvent(key, press) as Boolean
     ? ">>> HomeScene >> OnkeyEvent"
     result = false
     if press
-        if key = "back"
-            HideTop()
-            result = m.screenStack.count() <> 0
-        else if key = "options"
-        end if
+        if key = "back" then
         
+        ' if Details opened
+          if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = false
+            HideScreen(m.detailsScreen)
+            ShowScreen(m.gridScreen)
+            m.gridScreen.setFocus(true)
+            result = true
+          else if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = true
+            m.detailsScreen.videoPlayerVisible = false
+            result = true
+          end if
+
+          if result = false
+           HideTop()
+           result = m.screenStack.count() <> 0
+           else if key = "options"
+           end if
+          end if
+
         ? "key == ";key
     end if
     return result

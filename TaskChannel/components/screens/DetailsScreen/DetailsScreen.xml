@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="DetailsScreen" extends="Group" initialFocus="Buttons">
+    
+    <interface>
+        <!-- Button press handler -->
+        <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+
+        <!-- Playback flag -->
+        <field id="videoPlayerVisible" type="bool" alwaysnotify="true" alias="VideoPlayer.visible"  onChange="onVideoVisibleChange" />
+        <field id="content" type="node" alwaysnotify="true" onChange="OnContentChange" />
+    </interface>
+    
+    <script type="text/brightscript" uri="pkg:/components/screens/DetailsScreen/DetailsScreen.brs" />
+    
+    <children>
+        <Poster
+            id="Background"
+            width="1280"
+            height="720"
+            />
+        <!-- Control buttons -->
+        <LabelList
+            id="Buttons"
+            translation="[800,120]"
+            color="0xFFFFFFFF"
+            focusedColor="0x333333FF"
+            numRows="2"
+            vertFocusAnimationStyle="floatingFocus"
+            itemSize="[250, 35]"
+            />
+
+        <Overhang
+            id="Overhang"
+            logoBaselineOffset="20"
+            translation="[-20, 0]" />            
+
+        <Description 
+            id = "Description"
+            translation="[45, 100]"
+            itemSpacings="[7, 16]"
+            />
+
+        <Video
+            id="VideoPlayer"
+            visible="false"
+            translation="[0, 0]"
+            width="1280"
+            height="720"
+            />
+
+    </children> 
+</component>
