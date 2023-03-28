@@ -1,34 +1,34 @@
 
-Sub Init()
-    m.top.Title = m.top.findNode("Title")
-    m.top.Description = m.top.findNode("Description")
-    m.top.ReleaseDate  = m.top.findNode("ReleaseDate")
+Sub init()
+    m.title = m.top.findNode("titleLabel")
+    m.description = m.top.findNode("descriptionLabel")
+    m.releaseDate  = m.top.findNode("releaseDateLabel")
 End Sub
 
 ' Content change handler
-Sub OnContentChanged()
+Sub onContentChanged()
     item = m.top.content
 
     title = item.title.toStr()
     if title <> invalid then
-        m.top.Title.text = title.toStr()
+        m.title.text = title.toStr()
     end if
     
     value = item.description
     if value <> invalid then
         if value.toStr() <> "" then
-            m.top.Description.text = value.toStr()
+            m.description.text = value.toStr()
         else
-            m.top.Description.text = "No description"
+            m.description.text = "No description"
         end if
     end if
     
-    value = item.ReleaseDate
+    value = item.releaseDate
     if value <> invalid then
         if value <> ""
-            m.top.ReleaseDate.text = value.toStr()
+            m.releaseDate.text = value.toStr()
         else
-            m.top.ReleaseDate.text = "No release date"
+            m.releaseDate.text = "No release date"
         end if
     end if
 End Sub

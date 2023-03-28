@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="HomeScene" extends="Scene" >
+<component name="homeScene" extends="Scene" >
 
     <interface>
 
-        <field id="gridContent" type="node" alias="GridScreen.content" onChange="OnChangeContent"/>
-        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="GridScreen.rowItemSelected" onChange="OnRowItemSelected"/>
+        <field id="gridContent" type="node" alias="gridScreen.content" onChange="onChangeContent"/>
+        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="gridScreen.rowItemSelected" onChange="onRowItemSelected"/>
 
     </interface>
 
@@ -14,13 +14,13 @@
     <children>
 
         <GridScreen
-            id="GridScreen"
+            id="gridScreen"
             visible="true"
             translation="[0,0]" 
             />
 
         <DetailsScreen
-            id="DetailsScreen"
+            id="detailsScreen"
             visible="false"
             />
 

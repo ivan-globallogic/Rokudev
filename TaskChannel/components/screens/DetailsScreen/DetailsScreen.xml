@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<component name="DetailsScreen" extends="Group" initialFocus="Buttons">
+<component name="detailsScreen" extends="Group" initialFocus="buttons">
     
     <interface>
         <!-- Button press handler -->
-        <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+        <field id="itemSelected" type="integer" alwaysnotify="true" alias="buttons.itemSelected" onChange="onItemSelected" />
 
         <!-- Playback flag -->
-        <field id="videoPlayerVisible" type="bool" alwaysnotify="true" alias="VideoPlayer.visible"  onChange="onVideoVisibleChange" />
-        <field id="content" type="node" alwaysnotify="true" onChange="OnContentChange" />
+        <field id="videoPlayerVisible" type="bool" alwaysnotify="true" alias="videoPlayer.visible"  onChange="onVideoVisibilityChange" />
+        <field id="content" type="node" alwaysnotify="true" onChange="onContentChange" />
     </interface>
     
     <script type="text/brightscript" uri="pkg:/components/screens/DetailsScreen/DetailsScreen.brs" />
     
     <children>
         <Poster
-            id="Background"
+            id="background"
             width="1280"
             height="720"
             />
         <!-- Control buttons -->
         <LabelList
-            id="Buttons"
+            id="buttons"
             translation="[800,120]"
             color="0xFFFFFFFF"
             focusedColor="0x333333FF"
@@ -30,18 +30,18 @@
             />
 
         <Overhang
-            id="Overhang"
+            id="overhang"
             logoBaselineOffset="20"
             translation="[-20, 0]" />            
 
         <Description 
-            id = "Description"
+            id = "descriptionDetailsScreen"
             translation="[45, 100]"
             itemSpacings="[7, 16]"
             />
 
         <Video
-            id="VideoPlayer"
+            id="videoPlayer"
             visible="false"
             translation="[0, 0]"
             width="1280"

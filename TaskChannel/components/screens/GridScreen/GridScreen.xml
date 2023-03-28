@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<component name="GridScreen" extends="Group" initialFocus="RowList">
+<component name="gridScreen" extends="Group" initialFocus="rowList">
     <interface>
-        <field id="content" type="node" alias="RowList.content" onChange="OnFocusedChildChange"/>
-        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="RowList.rowItemSelected"/>
-        <field id="itemFocused" type="intarray" alias="RowList.rowItemFocused" onChange="OnItemFocused"/>
+        <field id="content" type="node" alias="rowList.content" onChange="onFocusedChildChange"/>
+        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="rowList.rowItemSelected"/>
+        <field id="itemFocused" type="intarray" alias="rowList.rowItemFocused" onChange="onItemFocused"/>
         <field id="focusedContent"  type="node"/>
     </interface>
     
@@ -17,7 +17,7 @@
          height="800"
          translation="[0,0]" /> 
         <RowList
-            id="RowList"
+            id="rowList"
             focusBitmapUri="pkg:/images/focus_grid.9.png"
             translation="[-60, 372]"
             itemSize="[1327, 218]"
@@ -38,7 +38,7 @@
             height="95" />
             
         <Description 
-            id="Description"
+            id="descriptionGridScreen"
             translation="[106, 119]"
             itemSpacings="[7,17]"
             />

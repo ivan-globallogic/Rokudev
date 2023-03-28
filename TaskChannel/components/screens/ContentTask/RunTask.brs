@@ -1,10 +1,12 @@
-sub StartDownloading()
-    m.contentTask = CreateObject("roSGNode", "DownloadContent")
-    m.contentTask.ObserveField("content", "Load")
+sub startDownloading()
+    'creates task node and activates it
+    m.contentTask = CreateObject("roSGNode", "downloadContent")
+    m.contentTask.ObserveField("content", "load")
     m.contentTask.control = "run"
 end sub
 
-sub Load()
-    m.GridScreen.SetFocus(true)
-    m.GridScreen.content = m.contentTask.content
+sub load() 'invoked when content is ready to be use
+    m.gridScreen = m.top.findNode("gridScreen")
+    m.gridScreen.SetFocus(true)
+    m.gridScreen.content = m.contentTask.content 'populate Gris with content
 end sub

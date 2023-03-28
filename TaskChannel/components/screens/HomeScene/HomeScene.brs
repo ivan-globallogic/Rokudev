@@ -1,57 +1,53 @@
 
-Function Init()
-    ? "[HomeScene] Init"
+Function init()
     m.screenStack = []
-    m.GridScreen = m.top.findNode("GridScreen")
-    m.detailsScreen = m.top.findNode("DetailsScreen")
-    StartDownloading()
-    ShowScreen(m.GridScreen)
+    m.grid_screen = m.top.findNode("gridScreen")
+    m.details_screen = m.top.findNode("detailsScreen")
+    startDownloading()
+    showScreen(m.grid_screen)
 End Function 
 
 ' Row item selected handler
-Function OnRowItemSelected()
-    HideScreen(m.GridScreen)
-    m.detailsScreen.content = m.gridScreen.focusedContent
-    m.detailsScreen.setFocus(true)
-    ShowScreen(m.DetailsScreen)
+Function onRowItemSelected()
+    hideScreen(m.grid_screen)
+    m.details_screen.content = m.grid_screen.focusedContent
+    m.details_screen.setFocus(true)
+    showScreen(m.details_screen)
 End Function
 
 ' if content set, focus on GridScreen
-Sub OnChangeContent()
+Sub onChangeContent()
     ? "OnChangeContent "
-    m.GridScreen.setFocus(true)
+    m.grid_screen.setFocus(true)
 End Sub
 
-Function OnkeyEvent(key, press) as Boolean
-    ? ">>> HomeScene >> OnkeyEvent"
-    result = false
+Function onkeyEvent(key, press) as Boolean
+    handled = false
     if press
         if key = "back" then
         
-        ' if Details opened
-          if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = false
-            HideScreen(m.detailsScreen)
-            ShowScreen(m.gridScreen)
-            m.gridScreen.setFocus(true)
-            result = true
-          else if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = true
-            m.detailsScreen.videoPlayerVisible = false
-            result = true
-          end if
+          ' if Details opened
+            if m.grid_screen.visible = false and m.details_screen.videoPlayerVisible = false
+              hideScreen(m.details_screen)
+              showScreen(m.grid_screen)
+              m.grid_screen.setFocus(true)
+              handled = true
+            else if m.grid_screen.visible = false and m.details_screen.videoPlayerVisible = true
+              m.details_screen.videoPlayerVisible = false
+              handled = true
+            end if
 
-          if result = false
-           HideTop()
-           result = m.screenStack.count() <> 0
-           else if key = "options"
-           end if
-          end if
+            if handled = false
+             hideTop()
+             handled = m.screenStack.count() <> 0
+            end if
 
-        ? "key == ";key
+         end if
     end if
-    return result
+    return handled
 End Function
 
-Sub ShowScreen(node)
+Sub showScreen(node)
     prev = m.screenStack.peek()
     if prev <> invalid
         prev.visible = false
@@ -61,11 +57,11 @@ Sub ShowScreen(node)
     m.screenStack.push(node)
 End Sub
 
-Sub HideTop()
-    HideScreen(invalid)
+Sub hideTop()
+    hideScreen(invalid)
 end Sub
 
-Sub HideScreen(node as Object)
+Sub hideScreen(node as Object)
     if node = invalid OR (m.screenStack.peek() <> invalid AND m.screenStack.peek().isSameNode(node)) 
         last = m.screenStack.pop()
         last.visible = false
