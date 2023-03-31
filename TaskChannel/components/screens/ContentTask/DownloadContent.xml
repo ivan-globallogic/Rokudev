@@ -1,5 +1,5 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<component name="downloadContent" extends="Task">
+<component name="DownloadContent" extends="Task">
     <interface>
         <field id="content" type="node" />
     </interface>

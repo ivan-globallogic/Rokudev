@@ -5,7 +5,6 @@ Function init()
 
     m.rowList       =   m.top.findNode("rowList")
     m.description   =   m.top.findNode("descriptionGridScreen")
-
 End Function
 
 ' set proper focus to RowList in case if return from Details Screen

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<component name="detailsScreen" extends="Group" initialFocus="buttons">
+<component name="DetailsScreen" extends="Group" initialFocus="buttons">
     
     <interface>
         <!-- Button press handler -->

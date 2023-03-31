@@ -1,7 +1,7 @@
 
 sub main()
     screen = CreateObject("roSGScreen")
-    scene = screen.CreateScene("homeScene")
+    scene = screen.CreateScene("HomeScene")
     port = CreateObject("roMessagePort")
     screen.SetMessagePort(port)
     screen.Show()

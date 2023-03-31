@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="description" extends="LayoutGroup">
+<component name="Description" extends="LayoutGroup">
     <interface>
         <field id="title" type="node"/>
         <field id="descriptionField" type="node"/>

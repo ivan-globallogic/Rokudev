@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<component name="gridScreen" extends="Group" initialFocus="rowList">
+<component name="GridScreen" extends="Group" initialFocus="rowList">
     <interface>
         <field id="content" type="node" alias="rowList.content" onChange="onFocusedChildChange"/>
         <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="rowList.rowItemSelected"/>

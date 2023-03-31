@@ -1,24 +1,23 @@
 
 Function init()
     m.screenStack = []
-    m.grid_screen = m.top.findNode("gridScreen")
-    m.details_screen = m.top.findNode("detailsScreen")
+    m.gridScreen = m.top.findNode("GridScreen")
+    m.detailsScreen = m.top.findNode("DetailsScreen")
     startDownloading()
-    showScreen(m.grid_screen)
+    showScreen(m.gridScreen)
 End Function 
 
 ' Row item selected handler
 Function onRowItemSelected()
-    hideScreen(m.grid_screen)
-    m.details_screen.content = m.grid_screen.focusedContent
-    m.details_screen.setFocus(true)
-    showScreen(m.details_screen)
+    hideScreen(m.gridScreen)
+    m.detailsScreen.content = m.gridScreen.focusedContent
+    m.detailsScreen.setFocus(true)
+    showScreen(m.detailsScreen)
 End Function
 
 ' if content set, focus on GridScreen
 Sub onChangeContent()
-    ? "OnChangeContent "
-    m.grid_screen.setFocus(true)
+    m.gridScreen.setFocus(true)
 End Sub
 
 Function onkeyEvent(key, press) as Boolean
@@ -27,13 +26,13 @@ Function onkeyEvent(key, press) as Boolean
         if key = "back" then
         
           ' if Details opened
-            if m.grid_screen.visible = false and m.details_screen.videoPlayerVisible = false
-              hideScreen(m.details_screen)
-              showScreen(m.grid_screen)
-              m.grid_screen.setFocus(true)
+            if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = false
+              hideScreen(m.detailsScreen)
+              showScreen(m.gridScreen)
+              m.gridScreen.setFocus(true)
               handled = true
-            else if m.grid_screen.visible = false and m.details_screen.videoPlayerVisible = true
-              m.details_screen.videoPlayerVisible = false
+            else if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = true
+              m.detailsScreen.videoPlayerVisible = false
               handled = true
             end if
 

@@ -1,13 +1,12 @@
 
 Function init()
-
  m.top.observeField("visible", "onVisibilityChange")
  m.top.observeField("focusedChild", "onFocusedChildChange")
 
- m.buttons           =   m.top.findNode("buttons")
- m.videoPlayer       =   m.top.findNode("videoPlayer")
- m.description       =   m.top.findNode("descriptionDetailsScreen")
- m.background        =   m.top.findNode("background")
+ m.buttons      =  m.top.findNode("buttons")
+ m.videoPlayer  =  m.top.findNode("videoPlayer")
+ m.description  =  m.top.findNode("descriptionDetailsScreen")
+ m.background   =  m.top.findNode("background")
 
  ' create button
  result = createObject("roArray", 1, False)
@@ -42,7 +41,7 @@ Sub onContentChange()
 End Sub
 
 ' set proper focus to buttons if Details opened and stops Video if Details closed
-Sub onVisibleChange()
+Sub onVisiblityChange()
  if m.top.visible = true then
      m.buttons.jumpToItem = 0
      m.buttons.setFocus(true)
@@ -72,7 +71,6 @@ Sub onVideoPlayerStateChange()
  end if
 End Sub
 
-'///////////////////////////////////////////'
 ' Helper function convert AA to Node
 Function contentListSimpleNode(contentList as Object, nodeType = "ContentNode" as String) as Object
  result = createObject("roSGNode",nodeType)
