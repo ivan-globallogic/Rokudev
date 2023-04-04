@@ -36,10 +36,15 @@ sub settingTalksRowContent(json as Object)
     if element.talk <> invalid
      talk = element.talk
      rowChild = CreateObject("roSGNode", "ContentNode") 'creating items for row
-     rowChild.Title = talk.name
-     rowChild.Description = talk.description
-     rowChild.ReleaseDate = talk.released_at
+     rowChild.update(
+      {
+        Title: talk.name
+        Description: talk.name
+        ReleaseDate: talk.released_at
+      }
+      )
 
+     'retrieving url stream 
       if talk.media_profile_uris <> invalid then
         uris = talk.media_profile_uris     
         if uris.DoesExist("internal") then  
@@ -52,8 +57,8 @@ sub settingTalksRowContent(json as Object)
         end if
       end if 
 
-      if talk.photo_urls[2].url <> invalid then
-        rowChild.HDGRIDPOSTERURL = talk.photo_urls[2].url
+      if talk.photo_urls[1].url <> invalid then
+        rowChild.HDGRIDPOSTERURL = talk.photo_urls[1].url
       end if
 
       m.childNode1.appendChild(rowChild)
@@ -65,11 +70,15 @@ sub settingPlaylistsRowContent(json as Object)
   for each element in json.playlists 'element is a assoc array that contains playlist
     if element.playlist <> invalid then
      playlist = element.playlist
-     playlistItem = CreateObject("roSGNode", "ContentNode") 'creating node for each item in the row 
-     playlistItem.title = playlist.title
-     playlistItem.description = playlist.description
-     playlistItem.releaseDate = playlist.created_at
-     playlistItem.HDGRIDPOSTERURL = "pkg:/images/icon_focus_hd.png"
+     playlistItem = CreateObject("roSGNode", "ContentNode") 'creating node for each item in the row
+     playlistItem.update(
+      {
+        Title: playlist.title
+        Description: playlist.description
+        ReleaseDate: playlist.create_at
+        HDGridPosterURL: "pkg:/images/icon_focus_hd.png"
+      }
+      )
      m.childNode2.appendChild(playlistItem)
     end if
   end for

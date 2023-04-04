@@ -28,6 +28,13 @@
             vertFocusAnimationStyle="floatingFocus"
             itemSize="[250, 35]"
             />
+        
+        <Rectangle
+            id = "background"
+            color = "0x0"
+            translation = "[45, 100]"
+            width = "720"
+            height = "350"/>
 
         <Overhang
             id="overhang"

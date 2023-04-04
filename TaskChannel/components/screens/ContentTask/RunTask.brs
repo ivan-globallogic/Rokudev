@@ -6,7 +6,7 @@ sub startDownloading()
 end sub
 
 sub load() 'invoked when content is ready to be use
-    m.gridScreen = m.top.findNode("GridScreen")
+    m.gridScreen = m.top.findNode("gridScreen")
     m.gridScreen.SetFocus(true)
     m.gridScreen.content = m.contentTask.content 'populate Gris with content
 end sub
