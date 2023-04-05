@@ -35,9 +35,9 @@ End Sub
 
 ' Content change handler
 Sub onContentChange()
- m.description.content   = m.top.content
- m.videoPlayer.content   = m.top.content
- m.background.uri        = m.top.content.HDGRIDPOSTERURL
+ m.description.content  = m.top.content
+ m.videoPlayer.content  = m.top.content
+ m.background.uri       = m.top.content.HDPosterURL
 End Sub
 
 ' set proper focus to buttons if Details opened and stops Video if Details closed

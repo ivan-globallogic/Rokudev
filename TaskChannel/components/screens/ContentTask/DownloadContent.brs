@@ -36,13 +36,13 @@ sub settingTalksRowContent(json as Object)
     if element.talk <> invalid
      talk = element.talk
      rowChild = CreateObject("roSGNode", "ContentNode") 'creating items for row
-     rowChild.update(
-      {
-        Title: talk.name
-        Description: talk.name
-        ReleaseDate: talk.released_at
-      }
-      )
+     rowChild.Update({
+
+      Title: talk.name
+      Description: talk.description
+      ReleaseDate: talk.released_at
+
+     })
 
      'retrieving url stream 
       if talk.media_profile_uris <> invalid then
@@ -58,7 +58,7 @@ sub settingTalksRowContent(json as Object)
       end if 
 
       if talk.photo_urls[1].url <> invalid then
-        rowChild.HDGRIDPOSTERURL = talk.photo_urls[1].url
+        rowChild.HDPosterURL = talk.photo_urls[1].url
       end if
 
       m.childNode1.appendChild(rowChild)
@@ -71,14 +71,16 @@ sub settingPlaylistsRowContent(json as Object)
     if element.playlist <> invalid then
      playlist = element.playlist
      playlistItem = CreateObject("roSGNode", "ContentNode") 'creating node for each item in the row
-     playlistItem.update(
-      {
-        Title: playlist.title
-        Description: playlist.description
-        ReleaseDate: playlist.create_at
-        HDGridPosterURL: "pkg:/images/icon_focus_hd.png"
-      }
-      )
+     playlistItem.update({
+
+      Title: playlist.title
+      Description: playlist.description
+      ReleaseDate: playlist.created_at
+      HDPosterURL: "pkg:/images/splash_hd.jpg"
+      Url: "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
+      'HDGridPosterURL = "pkg:/images/"
+
+     })
      m.childNode2.appendChild(playlistItem)
     end if
   end for

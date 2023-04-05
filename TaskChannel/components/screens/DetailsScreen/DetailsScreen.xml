@@ -26,11 +26,12 @@
             focusedColor="0x333333FF"
             numRows="2"
             vertFocusAnimationStyle="floatingFocus"
-            itemSize="[250, 35]"
+            itemSize="[200, 35]"
             />
         
+        <!--Black background for detail text for better visibility-->
         <Rectangle
-            id = "background"
+            id = "detailsTextBackground"
             color = "0x0"
             translation = "[45, 100]"
             width = "720"
