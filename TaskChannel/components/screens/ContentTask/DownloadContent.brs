@@ -51,9 +51,11 @@ sub settingTalksRowContent(json as Object)
           videoUrl = uris.internal
           if videoUrl.DoesExist("2500k") then
             rowChild.Url = videoUrl.Lookup("2500k").uri
-          elseif videoUrl.DoesExist("transcript") then
-            rowChild.Url = videoUrl.transcript.uri
+          else
+            rowChild.Url = "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
           end if
+        else
+          rowChild.Url = "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
         end if
       end if 
 
