@@ -16,14 +16,14 @@ sub getContent()
 
     'retrieving data for talks
     json = parseJson(xfer.GetToString())
-    if json <> invalid
+    if json <> invalid then
       settingTalksRowContent(json)
     end if
 
     'retrieving data for playlists    
     xfer.SetUrl("https://api.ted.com/v1/playlists.json?api-key=4aufvjhph9rawjrp7xv23rte")
     json = parseJson(xfer.GetToString())
-    if json <> invalid
+    if json <> invalid then
       settingPlaylistsRowContent(json)
     end if
 
@@ -33,7 +33,7 @@ end sub
 
 sub settingTalksRowContent(json as Object)
   for each element in json.talks 'element is assoc array that contains talk
-    if element.talk <> invalid
+    if element.talk <> invalid then
      talk = element.talk
      rowChild = CreateObject("roSGNode", "ContentNode") 'creating items for row
      rowChild.Update({
@@ -44,6 +44,9 @@ sub settingTalksRowContent(json as Object)
 
      })
 
+     'link for videos with broken link
+     videoLink = "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
+
      'retrieving url stream 
       if talk.media_profile_uris <> invalid then
         uris = talk.media_profile_uris     
@@ -52,10 +55,10 @@ sub settingTalksRowContent(json as Object)
           if videoUrl.DoesExist("2500k") then
             rowChild.Url = videoUrl.Lookup("2500k").uri
           else
-            rowChild.Url = "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
+            rowChild.Url = videoLink
           end if
         else
-          rowChild.Url = "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
+          rowChild.Url = videoLink
         end if
       end if 
 
@@ -80,7 +83,6 @@ sub settingPlaylistsRowContent(json as Object)
       ReleaseDate: playlist.created_at
       HDPosterURL: "pkg:/images/splash_hd.jpg"
       Url: "https://roku-webdev-opus.s3.amazonaws.com/public-videos/big+stream+trimmed.mp4"
-      'HDGridPosterURL = "pkg:/images/"
 
      })
      m.childNode2.appendChild(playlistItem)

@@ -25,7 +25,7 @@ Sub onContentChanged()
     
     value = item.releaseDate
     if value <> invalid then
-        if value <> ""
+        if value <> "" then
             m.releaseDate.text = value.toStr()
         else
             m.releaseDate.text = "No release date"

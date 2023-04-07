@@ -22,11 +22,11 @@ End Sub
 
 Function onkeyEvent(key, press) as Boolean
     handled = false
-    if press
+    if press then
         if key = "back" then
         
           ' if Details opened
-            if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = false
+            if m.gridScreen.visible = false and m.detailsScreen.videoPlayerVisible = false then
               hideScreen(m.detailsScreen)
               showScreen(m.gridScreen)
               m.gridScreen.setFocus(true)
@@ -36,7 +36,7 @@ Function onkeyEvent(key, press) as Boolean
               handled = true
             end if
 
-            if handled = false
+            if handled = false then
              hideTop()
              handled = m.screenStack.count() <> 0
             end if
@@ -48,7 +48,7 @@ End Function
 
 Sub showScreen(node)
     prev = m.screenStack.peek()
-    if prev <> invalid
+    if prev <> invalid then
         prev.visible = false
     end if
     node.visible = true
@@ -61,12 +61,12 @@ Sub hideTop()
 end Sub
 
 Sub hideScreen(node as Object)
-    if node = invalid OR (m.screenStack.peek() <> invalid AND m.screenStack.peek().isSameNode(node)) 
+    if node = invalid OR (m.screenStack.peek() <> invalid AND m.screenStack.peek().isSameNode(node)) then
         last = m.screenStack.pop()
         last.visible = false
         
         prev = m.screenStack.peek()
-        if prev <> invalid
+        if prev <> invalid then
             prev.visible = true
             prev.setFocus(true)
         end if

@@ -17,7 +17,7 @@ End Function
 ' on Button press handler
 Sub onItemSelected()
  ' first button is Play
- if m.top.itemSelected = 0
+ if m.top.itemSelected = 0 then
      m.videoPlayer.visible = true
      m.videoPlayer.setFocus(true)
      m.videoPlayer.control = "play"
@@ -27,7 +27,7 @@ End Sub
 
 ' set proper focus on buttons and stops video if return from Playback to details
 Sub onVideoVisibilityChange()
- if m.videoPlayer.visible = false and m.top.visible = true
+ if m.videoPlayer.visible = false and m.top.visible = true then
      m.buttons.setFocus(true)
      m.videoPlayer.control = "stop"
  end if
@@ -61,7 +61,7 @@ End Sub
 
 ' event handler of Video player msg
 Sub onVideoPlayerStateChange()
- if m.videoPlayer.state = "error"
+ if m.videoPlayer.state = "error" then
      ' error handling
      m.videoPlayer.visible = false
  else if m.videoPlayer.state = "playing"
@@ -74,7 +74,7 @@ End Sub
 ' Helper function convert AA to Node
 Function contentListSimpleNode(contentList as Object, nodeType = "ContentNode" as String) as Object
  result = createObject("roSGNode",nodeType)
- if result <> invalid
+ if result <> invalid then
      for each itemAA in contentList
          item = createObject("roSGNode", nodeType)
          item.setFields(itemAA)
