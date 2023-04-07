@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="Description" extends="LayoutGroup">
+<component name="Description" extends="LayoutGroup" itemSpacings = "[2.0, 2.0]">
     <interface>
         <field id="title" type="node"/>
         <field id="descriptionField" type="node"/>
@@ -16,12 +16,14 @@
         <Label
             id="titleLabel"
             color="0xFFFFFF"
-            text=""/>
+            text=""
+            font = "LargeBoldSystemFont"/>
             
         <Label
             id="releaseDateLabel"
             color="0xFFFFFF"
-            text=""/>
+            text=""
+            font = "SmallSystemFont"/>
         
          <Label
             id="descriptionLabel"
@@ -31,6 +33,7 @@
             height="185"
             lineSpacing="7"
             text=""
+            font = "MediumSystemFont"
             />
     </children>
 
