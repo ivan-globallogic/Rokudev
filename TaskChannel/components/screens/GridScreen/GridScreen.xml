@@ -12,7 +12,7 @@
     <children>   
     <Rectangle
          id="testRectangle"
-         color="0xADD8E6"
+         color="0x90ee90"
          width="1280"
          height="720"
          translation="[0,0]" /> 
@@ -40,7 +40,7 @@
         <Description 
             id="descriptionGridScreen"
             translation="[106, 119]"
-            itemSpacings="[7,17]"
+            itemSpacings="[12, 30]"
             />
     </children>
 </component>

@@ -3,8 +3,8 @@ Function init()
     m.top.observeField("focusedChild", "onFocusedChildChange")
     m.top.observeField("visible", "onVisibleChange")
 
-    m.rowList       =   m.top.findNode("rowList")
-    m.description   =   m.top.findNode("descriptionGridScreen")
+    m.rowList      =  m.top.findNode("rowList")
+    m.description  =  m.top.findNode("descriptionGridScreen")
 End Function
 
 ' set proper focus to RowList in case if return from Details Screen

@@ -35,7 +35,8 @@
             color = "0x0"
             translation = "[45, 100]"
             width = "720"
-            height = "350"/>
+            height = "350"
+            opacity = "0.5"/>
 
         <Overhang
             id="overhang"
@@ -45,7 +46,7 @@
         <Description 
             id = "descriptionDetailsScreen"
             translation="[45, 100]"
-            itemSpacings="[7, 16]"
+            itemSpacings="[12, 30]"
             />
 
         <Video

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="Description" extends="LayoutGroup" itemSpacings = "[2.0, 2.0]">
+<component name="Description" extends="LayoutGroup">
     <interface>
         <field id="title" type="node"/>
         <field id="descriptionField" type="node"/>
@@ -17,13 +17,18 @@
             id="titleLabel"
             color="0xFFFFFF"
             text=""
-            font = "LargeBoldSystemFont"/>
+            >
+            <Font role = "font" uri ="pkg:/fonts/arial.ttf" size = "32"/>
+            </Label>
             
         <Label
             id="releaseDateLabel"
             color="0xFFFFFF"
             text=""
-            font = "SmallSystemFont"/>
+            font = "font:SmallSystemFont"
+            >
+            <Font role = "font" uri = "pkg:/fonts/bahnschrift.ttf" size = "22"/>
+            </Label>
         
          <Label
             id="descriptionLabel"
@@ -33,8 +38,10 @@
             height="185"
             lineSpacing="7"
             text=""
-            font = "MediumSystemFont"
-            />
+            font = "font:MediumSystemFont"
+            >
+            <Font role = "font" uri = "pkg:/fonts/Candarai.ttf" size = "28"/>
+            </Label>
     </children>
 
 </component> 
