@@ -9,17 +9,20 @@
     
     <script type="text/brightscript" uri="pkg:/components/screens/GridScreen/GridScreen.brs" />
         
-    <children>   
+    <children>
+    
+    <!--background for Grid screen-->
     <Rectangle
-         id="testRectangle"
+         id="background"
          color="0x90ee90"
          width="1280"
          height="720"
          translation="[0,0]" /> 
+
         <RowList
             id="rowList"
             focusBitmapUri="pkg:/images/focus_grid.9.png"
-            translation="[-60, 372]"
+            translation="[-60, 400]"
             itemSize="[1327, 218]"
             numRows="2"
             itemSpacing="[13, 0]"
@@ -30,12 +33,6 @@
             showRowLabel="true"
             showRowCounter="true"
             rowLabelOffset="[[147, 20]]"/>
-         <!--This is design around RowList-->
-        <Poster
-            translation="[0, 650]"
-            uri="pkg:/images/BG_dark_down.png"
-            width="2000"
-            height="95" />
             
         <Description 
             id="descriptionGridScreen"

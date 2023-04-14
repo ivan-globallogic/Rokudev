@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="Description" extends="LayoutGroup">
     <interface>
-        <field id="title" type="node"/>
-        <field id="descriptionField" type="node"/>
-        <field id="starRating" type="node"/>
-        <field id="userStarRating" type="node"/>
-        <field id="releaseDate" type="node"/>
         <field id="content" type="node" onChange="onContentChanged"/>
     </interface>
     
@@ -25,7 +20,6 @@
             id="releaseDateLabel"
             color="0xFFFFFF"
             text=""
-            font = "font:SmallSystemFont"
             >
             <Font role = "font" uri = "pkg:/fonts/bahnschrift.ttf" size = "22"/>
             </Label>
@@ -34,11 +28,10 @@
             id="descriptionLabel"
             color="0xFFFFFF"
             wrap="true"
-            width="553"
-            height="185"
+            width="640"
+            height="350"
             lineSpacing="7"
             text=""
-            font = "font:MediumSystemFont"
             >
             <Font role = "font" uri = "pkg:/fonts/Candarai.ttf" size = "28"/>
             </Label>

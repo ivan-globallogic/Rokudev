@@ -3,8 +3,8 @@
 
     <interface>
 
-        <field id="gridContent" type="node" alias="GridScreen.content" onChange="onChangeContent"/>
-        <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="GridScreen.rowItemSelected" onChange="onRowItemSelected"/>
+     <field id="gridContent" type="node" alias="GridScreen.content" onChange="onChangeContent"/>
+     <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="GridScreen.rowItemSelected" onChange="onRowItemSelected"/>
 
     </interface>
 
@@ -16,7 +16,7 @@
         <GridScreen
             id="gridScreen"
             visible="true"
-            translation="[0,0]" 
+            translation="[0,0]"
             />
 
         <DetailsScreen

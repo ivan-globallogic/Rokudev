@@ -71,7 +71,7 @@ Sub onVideoPlayerStateChange()
  end if
 End Sub
 
-' Helper function convert AA to Node
+' Helper function convert assoc. array to Node
 Function contentListSimpleNode(contentList as Object, nodeType = "ContentNode" as String) as Object
  result = createObject("roSGNode",nodeType)
  if result <> invalid then

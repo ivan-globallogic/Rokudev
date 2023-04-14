@@ -7,7 +7,7 @@ Function init()
     showScreen(m.gridScreen)
 End Function 
 
-' Row item selected handler
+' Row item selected handler, opening Details screen
 Function onRowItemSelected()
     hideScreen(m.gridScreen)
     m.detailsScreen.content = m.gridScreen.focusedContent

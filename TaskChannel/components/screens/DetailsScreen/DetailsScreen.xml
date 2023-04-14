@@ -13,20 +13,23 @@
     <script type="text/brightscript" uri="pkg:/components/screens/DetailsScreen/DetailsScreen.brs" />
     
     <children>
+    
         <Poster
             id="background"
-            width="1280"
+            width="640"
             height="720"
+            translation = "[640, 0]"
             />
+
         <!-- Control buttons -->
         <LabelList
             id="buttons"
-            translation="[800,120]"
+            translation="[850, 750]"
             color="0xFFFFFFFF"
             focusedColor="0x333333FF"
             numRows="2"
             vertFocusAnimationStyle="floatingFocus"
-            itemSize="[200, 35]"
+            itemSize="[150, 35]"
             />
         
         <!--Black background for detail text for better visibility-->
@@ -36,12 +39,7 @@
             translation = "[45, 100]"
             width = "720"
             height = "350"
-            opacity = "0.5"/>
-
-        <Overhang
-            id="overhang"
-            logoBaselineOffset="20"
-            translation="[-20, 0]" />            
+            opacity = "0.5"/>          
 
         <Description 
             id = "descriptionDetailsScreen"
