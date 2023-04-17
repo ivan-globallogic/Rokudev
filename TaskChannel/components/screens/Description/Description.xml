@@ -21,7 +21,7 @@
             color="0xFFFFFF"
             text=""
             >
-            <Font role = "font" uri = "pkg:/fonts/bahnschrift.ttf" size = "22"/>
+            <Font role = "font" uri = "pkg:/fonts/bahnschrift.ttf" size = "18"/>
             </Label>
         
          <Label
@@ -29,11 +29,11 @@
             color="0xFFFFFF"
             wrap="true"
             width="640"
-            height="350"
+            height = "185"
             lineSpacing="7"
             text=""
             >
-            <Font role = "font" uri = "pkg:/fonts/Candarai.ttf" size = "28"/>
+            <Font role = "font" uri = "pkg:/fonts/Candarai.ttf" size = "24"/>
             </Label>
     </children>
 

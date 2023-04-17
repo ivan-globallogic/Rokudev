@@ -8,6 +8,17 @@ Function init()
  m.description  =  m.top.findNode("descriptionDetailsScreen")
  m.background   =  m.top.findNode("background")
 
+ ' adjusts the size(height and width) of the description text
+ descriptionLabel = m.description.getChild(2)
+ descriptionLabel.height = "450"
+ descriptionLabel.width = "540"
+
+ 'adjusts the display of title label
+ titleLabel = m.description.getChild(0)
+ titleLabel.height = "100"
+ titleLabel.width = "540"
+ titleLabel.wrap = "True"
+
  ' create button
  result = createObject("roArray", 1, False)
  result.push({title : "Play"})

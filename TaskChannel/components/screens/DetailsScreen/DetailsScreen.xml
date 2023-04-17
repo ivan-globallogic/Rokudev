@@ -20,31 +20,31 @@
             height="720"
             translation = "[640, 0]"
             />
-
-        <!-- Control buttons -->
-        <LabelList
-            id="buttons"
-            translation="[850, 750]"
-            color="0xFFFFFFFF"
-            focusedColor="0x333333FF"
-            numRows="2"
-            vertFocusAnimationStyle="floatingFocus"
-            itemSize="[150, 35]"
-            />
         
         <!--Black background for detail text for better visibility-->
         <Rectangle
             id = "detailsTextBackground"
-            color = "0x0"
-            translation = "[45, 100]"
-            width = "720"
-            height = "350"
-            opacity = "0.5"/>          
+            color = "0x0000FF"
+            translation = "[0, 0]"
+            width = "640"
+            height = "1280"
+            opacity = "1"/>          
 
         <Description 
             id = "descriptionDetailsScreen"
             translation="[45, 100]"
             itemSpacings="[12, 30]"
+            />
+
+<!-- Control buttons -->
+        <LabelList
+            id="buttons"
+            translation="[740, 100]"
+            color="0xFFFFFFFF"
+            focusedColor="0x333333FF"
+            numRows="2"
+            vertFocusAnimationStyle="floatingFocus"
+            itemSize="[200, 35]"
             />
 
         <Video
